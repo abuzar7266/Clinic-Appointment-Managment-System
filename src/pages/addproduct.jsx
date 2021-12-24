@@ -38,12 +38,41 @@ class DisplayImage extends React.Component {
 }
 
 const AddProduct = () => {
-  const [pid, setPid] = useState(0);
+
   const [quantity, setquantity] = useState(0);
-  const [productdescription, setproductdescription] = useState(null);
+  const [productdescription, setproductdescription] = useState(null); // this is product name
   const [category, setcategory] = useState(null);
   const [rentcharges, setrentcharges] = useState(0);
   const [maxdaylimit, setmaxdaylimit] = useState(0);
+  const [fineperday, setfineperday] = useState(0);
+  const [thumbnail, setthumbnail] = useState(null);
+
+  function checkstates() {
+        if(quantity==0 || productdescription ==null || category==null || rentcharges<=0 || maxdaylimit<=0 || fineperday <=0 || thumbnail==null){
+           return false;    
+        } else {
+          return true;
+        }
+  }
+
+  function prevent (event){
+   event.preventDefault();
+  }
+  
+ function HandleAddProduct(){
+    
+  if ( checkstates () ){
+    
+    /// write your code here for sending the data
+    console.log("states collected");
+ 
+  } else {
+      alert("Field Either Incomplete/Invalid");
+  }
+   
+
+ }
+
 
   return (
     <div className="col-6">
@@ -52,12 +81,13 @@ const AddProduct = () => {
           <h3>Add Product</h3>
           <p>Enter the product details</p>
 
-          <form style={{ padding: "25px" }}>
+          <form onSubmit={prevent} style={{ padding: "25px" }}>
             <p>Product Name</p>
             <input
               className="form-control"
               type="text"
               name="productname"
+              onChange={(e)=>setproductdescription(e.target.value)} 
               required
             />
             <p>Quantity</p>
@@ -65,6 +95,7 @@ const AddProduct = () => {
               className="form-control"
               type="text"
               name="productquantity"
+              onChange={(e)=>setquantity(e.target.value)}
               required
             />
             <p>Description</p>
@@ -72,54 +103,71 @@ const AddProduct = () => {
               className="form-control"
               type="text"
               name="productdescription"
+              onChange={(e)=>setproductdescription(e.target.value)}
               required
             />
+
             <p>Category</p>
             <input
               className="form-control"
               type="text"
               name="productcategory"
+              onChange={(e)=>setcategory(e.target.value)}
               required
             />
 
+            <div
+              style={{
+                display: "flex",
+                "margin-top": "25px",
+                "margin-bottom": "25px",
+              }}
+            >
+              <div className="col-3">
+                <p>Rent charges /Day</p>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="productcategory"
+                  required
+                  onChange={(e)=>setrentcharges(e.target.value)}
+                  style={{ margin: "5px" }}
+                />
+              </div>
 
+              <div className="col-3">
+                <p>Max Day Limit </p>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="productcategory"
+                  onChange={(e)=>setmaxdaylimit(e.target.value)}
+                  required
+                  style={{ margin: "5px" }}
+                />
+              </div>
 
-
-      
-            <div className="" style={{"display":"flex","margin-top":"25px"}}>
-
-            <p>Rent charges /Day</p>
-            <input
-              className="form-control"
-              type="text"
-              name="productcategory"
-              required
-            />
-
-            <p>Max Day Limit </p>
-            <input
-              className="form-control"
-              type="text"
-              name="productcategory"
-              required
-            />            
-            <p>Fine /Day</p>
-            <input
-              className="form-control"
-              type="text"
-              name="productcategory"
-              required
-            />
+              <div className="col-3">
+                <p>Fine /Day</p>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="productcategory"
+                  onChange={(e)=>setfineperday(e.target.value)}
+                  style={{ margin: "5px" }}
+                  required
+                />
+              </div>
             </div>
 
             <div>
               <p>Thumbnail</p>
-              <input className="form-control" type="file" required />
+              <input className="form-control" type="file" required onChange={(e)=>setthumbnail(e.target.value)} />
             </div>
 
             <br></br>
             <div className="form-button">
-              <button id="submit" type="submit" className="ibtn">
+              <button id="submit" onClick={HandleAddProduct}  type="submit" className="ibtn">
                 Submit
               </button>
             </div>
