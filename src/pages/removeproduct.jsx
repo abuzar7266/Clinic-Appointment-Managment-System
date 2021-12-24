@@ -1,7 +1,18 @@
-import React from 'react'
-import Button from '@material-ui/core/Button'
+import React,{useState} from 'react'
+
 
 const RemoveProduct = () => {
+  
+  const [productid, setproductid] = useState(null);
+
+ 
+  function prevent(event){ event.preventDefault(); }
+
+  function HandleRemoveProduct(){
+   
+    console.log("Product Id => "+productid);
+
+  }  
 
 return (
 
@@ -18,12 +29,12 @@ return (
 
       <div className="form-items">
 
-          <form>
-            <input className="form-control" type="text" name="productid" placeholder="Product Id" required />
+          <form onSubmit={prevent} >
+            <input className="form-control" onChange={(e)=>setproductid(e.target.value)}  type="text" name="productid" placeholder="Product Id" required />
                          
             <br></br>
             <div className="form-button">
-              <button id="submit" type="submit" className="ibtn">Remove</button>  
+              <button id="submit" onClick={HandleRemoveProduct}  type="submit" className="ibtn">Remove</button>  
 
             </div>
           </form>

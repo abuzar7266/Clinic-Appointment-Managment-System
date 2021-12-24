@@ -17,10 +17,6 @@ import statusCards from "../assets/JsonData/status-card-data.json";
 import { useState } from "react";
 
 
-import SendIcon from '@material-ui/core/Icon'
-import { Button } from "@material-ui/core";
-
-
 const latestComplains = {
   header: ["Complaint Id", "Customer", "date", "status"],
   body: [
@@ -36,78 +32,7 @@ const latestComplains = {
       date: "1 Jun 2021",
       status: "paid",
     },
-    {
-      id: "#OD1713",
-      user: "anthony baker",
-      date: "27 Jun 2021",
-      status: "pending",
-    },
-    {
-      id: "#OD1712",
-      user: "frank iva",
-      date: "1 Jun 2021",
-      status: "paid",
-    },
-    {
-      id: "#OD1713",
-      user: "anthony baker",
-      date: "27 Jun 2021",
-      status: "refund",
-    },
-    {
-      id: "#OD1713",
-      user: "anthony baker",
-      date: "27 Jun 2021",
-      status: "refund",
-    },
-    {
-      id: "#OD1713",
-      user: "anthony baker",
-      date: "27 Jun 2021",
-      status: "refund",
-    },
-    {
-      id: "#OD1711",
-      user: "john doe",
-      date: "17 Jun 2021",
-      status: "shipping",
-    },
-    {
-      id: "#OD1712",
-      user: "frank iva",
-      date: "1 Jun 2021",
-      status: "paid",
-    },
-    {
-      id: "#OD1713",
-      user: "anthony baker",
-      date: "27 Jun 2021",
-      status: "pending",
-    },
-    {
-      id: "#OD1712",
-      user: "frank iva",
-      date: "1 Jun 2021",
-      status: "paid",
-    },
-    {
-      id: "#OD1713",
-      user: "anthony baker",
-      date: "27 Jun 2021",
-      status: "refund",
-    },
-    {
-      id: "#OD1713",
-      user: "anthony baker",
-      date: "27 Jun 2021",
-      status: "refund",
-    },
-    {
-      id: "#OD1713",
-      user: "anthony baker",
-      date: "27 Jun 2021",
-      status: "refund",
-    },
+
   ],
 };
 
