@@ -13,6 +13,7 @@ import ViewComplaint from '../pages/viewcomplaint'
 import Return from '../pages/returns'
 import Booking from '../pages/booking'
 import Rentproduct from '../pages/rentproduct'
+import ProcessPayment from '../pages/processpayment'
 
 const Routes = () => {
     return (
@@ -27,7 +28,8 @@ const Routes = () => {
             <Route path='/viewcomplaint' component={ViewComplaint} />              
             <Route path='/returns' component={Return} /> 
             <Route path='/booking' component={Booking} />  
-            <Route path='/rentproduct' component={Rentproduct} />               
+            <Route path='/rentproduct' component={Rentproduct} />      
+            <Route path='/processpayment' component={ProcessPayment} />         
         </Switch>
     )
 }

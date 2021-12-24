@@ -2,18 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router-dom'
 
-const ProductInfo = {
-    id:"1",
-    name:"Granite Peak 24",
-    quantity:"7",
-    productdescription:"Granite Mountain Bike",
-    category: "Bicycle",
-    rentcharges: "1000",
-    maxDayLimit: "10",
-    finePerDay: "50",
-    thumbnail: "../../public/assets/img/prod-1.png"
-  }
-  
+
   
   const ProductCard = (props) => {
   

@@ -32,7 +32,7 @@
     {
         "display_name": "Bookings",
         "route": "/booking",
-        "icon": "bx bx-cart"
+        "icon": "bx bx-book"
     },
     {
         "display_name": "Rent Product",
@@ -40,14 +40,14 @@
         "icon": "bx bx-cart"
     },
     {
-        "display_name": "Sales Report",
-        "route": "/salesreport",
-        "icon": "bx bx-bar-chart-alt"
+        "display_name": "Process Payment",
+        "route": "/processpayment",
+        "icon": "bx bx-money"
     },
     {
         "display_name": "Launch Complaint",
         "route": "/launchcomplaint",
-        "icon": "bx bx-list-ol"
+        "icon": "bx bx-label"
     },    
     {
         "display_name": "View Complain",
@@ -57,18 +57,9 @@
       {
         "display_name": "returns",
         "route": "/returns",
-        "icon": "bx bx-gift"
+        "icon": "bx bx-arrow-back"
     },
-    {
-        "display_name": "discount",
-        "route": "/discount",
-        "icon": "bx bx-gift"
-    },
-    {
-        "display_name": "inventory",
-        "route": "/inventory",
-        "icon": "bx bx-store-alt"
-    },
+
     {
         "display_name": "settings",
         "route": "/settings",
