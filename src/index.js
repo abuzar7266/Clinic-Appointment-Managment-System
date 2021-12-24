@@ -14,7 +14,7 @@ import './assets/css/theme.css'
 import './assets/css/index.css'
 
 import Layout from './components/layout/Layout'
-import LaunchComplaint from './pages/launchcomplaint';
+
 
 const store = createStore(
   rootReducer
