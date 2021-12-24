@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
-import Card from '../components/card/card';
+
+import BookingReciept from '../components/bookingreciept/bookingreceipt';
 
 
 const LaunchComplaint = () => {
@@ -29,6 +30,7 @@ const LaunchComplaint = () => {
   return (
 
 
+     <div>
 
     <form  onSubmit={prevent} >
 
@@ -53,17 +55,20 @@ const LaunchComplaint = () => {
 
       </div> 
 
-     {
-       recieptverified?
-       
-       <div ><Card/><ProceedComplaint/></div>
-       
-       :null
-     }
+
 
 
     </form>
 
+{
+  recieptverified?
+  
+  <div  style={{"display":"flex"}}><BookingReciept/><ProceedComplaint/></div>
+  
+  :null
+}
+
+</div>
 
   );
 
@@ -82,7 +87,7 @@ const ProceedComplaint = () => {
   function renderNormalView(){
   
     return (
-      <div className='col-4'>
+      <div className='nice'>
       <div className="card">
       <h2> Checkout </h2>
       <p>Are you sure you want to continue ?</p>
@@ -94,7 +99,8 @@ const ProceedComplaint = () => {
 
 
   return (
-       <div>
+
+       <div >
         {
         launchcomplaint?<AddComplaintDetails/>:renderNormalView()
         }
@@ -115,7 +121,7 @@ const AddComplaintDetails = () => {
   return (
 
 
-     <div className='col-6'> 
+     <div className='col-14'> 
     <div className="card">
 
         <h2>Add Complaint Details</h2>
