@@ -15,7 +15,7 @@ import user_image from '../../assets/images/sameedz.jpg'
 import user_menu from '../../assets/JsonData/user_menus.json'
 
 const curr_user = {
-    display_name: 'Sameed Z',
+    display_name: localStorage.getItem('User'),
     image: user_image
 }
 

@@ -35,13 +35,13 @@ const Sidebar = props => {
             </div>
             {
                 sidebar_items.map((item, index) => (
-                    <Link to={item.route} key={index}>
+                    localStorage.getItem('Access')=='Cashier' && (item.display_name=='Dashboard' || item.display_name=='Process Payment') && (<Link to={item.route} key={index}>
                         <SidebarItem
                             title={item.display_name}
                             icon={item.icon}
                             active={index === activeItem}
                         />
-                    </Link>
+                    </Link>)
                 ))
             }
         </div>

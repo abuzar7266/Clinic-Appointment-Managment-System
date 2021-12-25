@@ -14,10 +14,12 @@ import Return from '../pages/returns'
 import Booking from '../pages/booking'
 import Rentproduct from '../pages/rentproduct'
 import ProcessPayment from '../pages/processpayment'
+import Login from '../pages/login';
 
 const Routes = () => {
     return (
         <Switch>
+            <Route path='/login' exact component={Login}/>
             <Route path='/' exact component={Dashboard}/>
             <Route path='/customers' component={Customers}/>
             <Route path='/productcatalog' component={ProductCatalog}/>
@@ -31,7 +33,7 @@ const Routes = () => {
             <Route path='/rentproduct' component={Rentproduct} />      
             <Route path='/processpayment' component={ProcessPayment} />         
         </Switch>
-    )
+    );
 }
 
 export default Routes
