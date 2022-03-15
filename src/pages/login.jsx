@@ -1,30 +1,3 @@
-/*import React from 'react';
-import { useState } from 'react';
-
-const Login = (props) =>{
-    const [username,setUsername] = useState('');
-    const [password,setPassword] = useState('');
-
-    var handleUsernameSet = (e)=>{
-        setUsername(e.value);
-    }
-    var handlePasswordSet = (e)=>{
-        setPassword(e.value);
-    }
-    return (<>
-    <div className='container'>
-        <div className='row'>
-                <div className='col-6'>
-                    <input type="text" value = {username} onClick={(e)=>handleUsernameSet(e)} placeholder='Username'/> <br/>
-                    <input type="text" value = {password} onClick={(e)=>handlePasswordSet(e)} placeholder='Password'/> <br/>
-                    <button type="button" class="btn btn-light">Login</button>
-                </div>
-        </div>
-    </div>
-    </>);
-}
-export default Login;*/
-
 import React,{useState} from 'react'
 import Logo from '../assets/images/logo-02.png';
 import '../assets/css/login.css';
@@ -98,7 +71,6 @@ axios.defaults.withCredentials = true;
                 </div>
 
                 <button type="button" onClick={ValidateLogin} className="btn btn-primary btn-block">Submit</button>
-                <button type="button" onClick={ValidateLogout} className="btn btn-primary btn-block">Logout</button>
          </form>
               
         </div> 

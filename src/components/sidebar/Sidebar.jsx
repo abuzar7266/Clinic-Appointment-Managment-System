@@ -35,7 +35,7 @@ const Sidebar = props => {
             </div>
             {
                 sidebar_items.map((item, index) => (
-                    localStorage.getItem('Access')=='Cashier' && (item.display_name=='Dashboard' || item.display_name=='Process Payment') && (<Link to={item.route} key={index}>
+                    (((item.display_name=='Dashboard' || item.display_name=='Process Payment' || item.display_name=='Remove Products' || item.display_name=='Add Products')) || ((item.display_name=='Product Catalog'))) && (<Link to={item.route} key={index}>
                         <SidebarItem
                             title={item.display_name}
                             icon={item.icon}

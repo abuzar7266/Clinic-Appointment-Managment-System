@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import axios from 'axios';
 class DisplayImage extends React.Component {
   constructor(props) {
     super(props);
@@ -38,6 +38,7 @@ class DisplayImage extends React.Component {
 }
 
 const AddProduct = () => {
+  const [name, setName] = useState(null);
   const [quantity, setquantity] = useState(0);
   const [productdescription, setproductdescription] = useState(null); // this is product name
   const [category, setcategory] = useState(null);
@@ -45,6 +46,18 @@ const AddProduct = () => {
   const [maxdaylimit, setmaxdaylimit] = useState(0);
   const [fineperday, setfineperday] = useState(0);
   const [thumbnail, setthumbnail] = useState(null);
+
+  /*
+        this.name = Description.name;
+        this.category = Description.category;
+        this.rentCharges = Description.rentCharges;
+        this.maxDayLimit = Description.maxDayLimit;
+        this.finePerDay = Description.finePerDay;
+        this.instructions = Description.instructions;
+        this.thumbnail = Description.thumbnail;
+  */
+
+  const [initiate,setInitiate] = useState(0);
 
   function checkstates() {
     if (
@@ -74,9 +87,130 @@ const AddProduct = () => {
       alert("Field Either Incomplete/Invalid");
     }
   }
+  const HandleInitiateAddProduct = async ()=>{
+    axios.defaults.withCredentials = true;
+    const res = await axios.post('http://localhost:3001/addProduct/initiate');
+    console.log(res);
+    if(res.status==200){
+      setInitiate(1);
+    }
+  }
 
-  return (
-    <div className="col-6">
+  const HandleSetProduct = async () =>{
+      const Description = {
+        category:category,
+        instruction:productdescription,
+        thumbnail:thumbnail,
+        finePerday:fineperday,
+        maxDayLimit:maxdaylimit,
+        rentCharges:rentcharges,
+        name:name
+      }
+      axios.defaults.withCredentials = true;
+      const res = await axios.post('http://localhost:3001/addProduct/set',{
+        Quantity:quantity,
+        Description:Description
+      });
+      if(res.status==200){
+        setInitiate(2);
+      }
+  }
+  const HandleConfirmProduct = async () =>{
+    axios.defaults.withCredentials = true;
+    const res = await axios.post('http://localhost:3001/addProduct/confirm');
+    if(res.status==200){
+      setInitiate(3);
+    }
+  }
+  function HandleAddReset(){
+    setInitiate(0);
+  }
+  function HandleAddClose(){
+    window.location.href = 'http://localhost:3000/';
+  }
+  return (<div>
+    {
+      initiate==3 && (<div className="col-4">
+      <div className="card">
+        <div className="form-items">
+          <h3>Add Product</h3>
+          <p>Enter the product details</p>
+
+          <form onSubmit={prevent} style={{ padding: "25px" }}>
+            <p>Product Added in Stock</p>
+            <br></br>
+            <div className="form-button">
+              <button
+                id="submit"
+                onClick={HandleAddReset}
+                type="submit"
+                className="ibtn"
+              >
+                Add Another Product
+              </button>
+              <button
+                id="submit"
+                onClick={HandleAddClose}
+                type="submit"
+                className="ibtn"
+              >
+                Close
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>)
+    }
+    {
+      initiate==2 && (<div className="col-4">
+      <div className="card">
+        <div className="form-items">
+          <h3>Add Product</h3>
+          <p>Enter the product details</p>
+
+          <form onSubmit={prevent} style={{ padding: "25px" }}>
+            <p>Product Name: {name}</p>
+
+            <p>Description: {productdescription}</p>
+
+            <p>Category: {category}</p>
+
+            <div>
+              <p>Quantity: {quantity}</p>
+            </div>
+
+            <div>
+              <div>
+                <p>Rent charges /Day: {rentcharges} PKR</p>
+              </div>
+
+              <div>
+                <p>Max Day Limit: {maxdaylimit}</p>
+              </div>
+
+              <div>
+                <p>Fine /Day: {fineperday} PKR</p>
+              </div>
+            </div>
+            <br></br>
+            <div className="form-button">
+              <button
+                id="submit"
+                onClick={HandleConfirmProduct}
+                type="submit"
+                className="ibtn"
+              >
+                Confirm
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>)
+    }
+    {
+      initiate==1 && (<div className="col-6">
       <div className="card">
         <div className="form-items">
           <h3>Add Product</h3>
@@ -88,7 +222,7 @@ const AddProduct = () => {
               className="form-control"
               type="text"
               name="productname"
-              onChange={(e) => setproductdescription(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
               required
             />
 
@@ -179,7 +313,7 @@ const AddProduct = () => {
             <div className="form-button">
               <button
                 id="submit"
-                onClick={HandleAddProduct}
+                onClick={HandleSetProduct}
                 type="submit"
                 className="ibtn"
               >
@@ -189,7 +323,20 @@ const AddProduct = () => {
           </form>
         </div>
       </div>
-    </div>
+    </div>)
+  }
+  {
+    initiate==0 && (<div>
+      <h6>Press Add New Product and Fill the information</h6> 
+      <button
+    id="submit"
+    onClick={HandleInitiateAddProduct}
+    type="submit"
+    className="ibtn"
+    >
+    Add New Product
+    </button></div>)
+  }</div>
   );
 };
 

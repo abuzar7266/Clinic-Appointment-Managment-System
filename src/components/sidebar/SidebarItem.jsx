@@ -6,14 +6,14 @@ const SidebarItem = props => {
 
     return (
         <>
-                {localStorage.getItem('Access')=='Cashier' && (props.title=='Dashboard') &&(<div className="sidebar__item">
+                <div className="sidebar__item">
                 <div className={`sidebar__item-inner ${active}`}>
                     <i className={props.icon}></i>
                     <span>
                         {props.title}
                     </span>
                 </div>
-                </div>)}
+                </div>
         </>
     )
 }
