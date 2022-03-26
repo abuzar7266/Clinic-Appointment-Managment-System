@@ -169,7 +169,7 @@ const Dashboard = () => {
 
     return (
         <div>
-            <h2 className="page-header">Dashboard</h2>
+            <h2 className="page-header">Clinic Dashboard</h2>
             <div className="row">
                 <div className="col-6">
                     <div className="row">
