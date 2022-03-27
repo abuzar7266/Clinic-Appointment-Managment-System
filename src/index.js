@@ -20,7 +20,7 @@ const store = createStore(
   rootReducer
 )
 
-document.title = 'Easy Rent'
+document.title = 'My Clinic'
 
 ReactDOM.render(
   <Provider store={store}>

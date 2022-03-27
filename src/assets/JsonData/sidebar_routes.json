@@ -41,6 +41,11 @@
     },
     {
         "display_name": "Find Doctor",
+        "route": "/find",
+        "icon": "bx bx-category-alt"
+    },
+    {
+        "display_name": "Appointment History",
         "route": "/history",
         "icon": "bx bx-category-alt"
     },

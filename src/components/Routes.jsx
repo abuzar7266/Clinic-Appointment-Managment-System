@@ -32,6 +32,7 @@ const Routes = () => {
             <Route path='/profile' component={PatientProfile}/>
             <Route path='/booking' component={BookedAppointment}/>
             <Route path='/history' component={HistoryAll}/>
+            <Route path='/find' component={FindDoctor}/>
         </Switch>
     );
 }
