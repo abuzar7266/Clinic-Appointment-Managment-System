@@ -4,34 +4,34 @@ import { Route, Switch } from 'react-router-dom'
 
 import Dashboard from '../pages/Dashboard'
 import Customers from '../pages/Customers'
-import ProductCatalog from '../pages/ProductCatalog'
-import AddProduct from '../pages/addproduct'
-import RemoveProduct from '../pages/removeproduct'
-import UpdateProduct from '../pages/updateproduct'
-import LaunchComplaint from '../pages/launchcomplaint'
-import ViewComplaint from '../pages/viewcomplaint'
-import Return from '../pages/returns'
-import Booking from '../pages/booking'
-import Rentproduct from '../pages/rentproduct'
-import ProcessPayment from '../pages/processpayment'
-import Login from '../pages/login';
-
+import DocProfile from '../pages/doctorProfile'
+import Appointment from '../pages/appointment'
+import PatientRecord from '../pages/patientRecord'
+import mySchedule from '../pages/schedule'
+import DoctorLogin from '../pages/loginDoctor'
+import LogoutDoctor from '../pages/doctorLogout'
+import PatientLogin from '../pages/PatientLogin'
+import Register from '../pages/registerPatient'
+import PatientProfile from '../pages/patientProfile'
+import BookedAppointment from '../pages/bookings'
+import FindDoctor from '../pages/CheckDoctor'
+import HistoryAll from '../pages/AppointmentHistory'
 const Routes = () => {
     return (
         <Switch>
-            <Route path='/login' exact component={Login}/>
             <Route path='/' exact component={Dashboard}/>
-            <Route path='/customers' component={Customers}/>
-            <Route path='/productcatalog' component={ProductCatalog}/>
-            <Route path='/addproduct' component={AddProduct} />  
-            <Route path='/removeproduct' component={RemoveProduct} />  
-            <Route path='/updateproduct' component={UpdateProduct} />                
-            <Route path='/launchcomplaint' component={LaunchComplaint} />  
-            <Route path='/viewcomplaint' component={ViewComplaint} />              
-            <Route path='/returns' component={Return} /> 
-            <Route path='/booking' component={Booking} />  
-            <Route path='/rentproduct' component={Rentproduct} />      
-            <Route path='/processpayment' component={ProcessPayment} />         
+            <Route path='/customers' component={Customers}/> 
+            <Route path='/doctor' component={DocProfile}/>   
+            <Route path='/appointment' component={Appointment}/> 
+            <Route path='/Appointrecord' component={PatientRecord}/> 
+            <Route path='/myschedule' component={mySchedule}/>
+            <Route path='/docout' component={LogoutDoctor}/>
+            <Route path='/docin' component={DoctorLogin}/>
+            <Route path='/patin' component={PatientLogin}/>
+            <Route path='/register' component={Register}/>
+            <Route path='/profile' component={PatientProfile}/>
+            <Route path='/booking' component={BookedAppointment}/>
+            <Route path='/history' component={HistoryAll}/>
         </Switch>
     );
 }

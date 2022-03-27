@@ -66,8 +66,7 @@ const Topnav = () => {
     return (
         <div className='topnav'>
             <div className="topnav__search">
-                <input type="text" placeholder='Search here...' />
-                <i className='bx bx-search'></i>
+                
             </div>
             <div className="topnav__right">
                 {
@@ -89,13 +88,6 @@ const Topnav = () => {
                     />
                     {/* dropdown here */}
                 </div>)
-                }
-                {
-                !localStorage.getItem('LoginStatus') && <div>
-                        <Link to="/login">
-                            Login
-                        </Link>
-                    </div>
                 }
                 <div className="topnav__right-item">
                     <ThemeMenu/>
